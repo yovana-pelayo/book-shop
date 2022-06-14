@@ -6,6 +6,11 @@ CREATE TABLE books(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title VARCHAR,
     released VARCHAR
-   
-
 );
+
+INSERT INTO books (
+    title,
+    released
+)
+VALUES 
+('Water for Elephants', '2006');

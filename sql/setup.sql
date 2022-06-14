@@ -13,4 +13,5 @@ INSERT INTO books (
     released
 )
 VALUES 
-('Water for Elephants', '2006');
+('Water for Elephants', '2006'),
+('Green Eggs and Ham', '1960');

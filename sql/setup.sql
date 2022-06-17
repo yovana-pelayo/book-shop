@@ -11,7 +11,7 @@ CREATE TABLE books(
 
 CREATE TABLE authors(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    name VARCHAR
+   author VARCHAR
 );
 
 INSERT INTO books (
@@ -23,7 +23,7 @@ VALUES
 ('Green Eggs and Ham', '1960');
 
 INSERT INTO authors (
-    name
+author
 )
 
 VALUES ('Sara Gruen'),

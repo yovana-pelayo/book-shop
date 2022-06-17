@@ -2,7 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const { Book } = require('../lib/models/Books');
+const { Book } = require('../lib/models/Book');
 
 describe('books routes', () => {
   beforeEach(() => {
@@ -15,9 +15,23 @@ describe('books routes', () => {
       released: '2006',
     });
 
-    const res = await request(app).post('/books').send(book);
-    expect(res.body.title).toEqual(book.title);
-    expect(res.body.released).toEqual(book.released);
+    const resp = await request(app).post('/books').send(book);
+    expect(resp.body.title).toEqual(book.title);
+    expect(resp.body.released).toEqual(book.released);
+  });
+
+  it('/books should return list of books', async () => {
+    const resp = await request(app).get('/books');
+    console.log('resp', resp);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual([
+      {
+        id: '1',
+        title: 'Water for Elephants',
+        released: '2006',
+      },
+      { id: '2', title: 'Green Eggs and Ham', released: '1960' },
+    ]);
   });
   afterAll(() => {
     pool.end();

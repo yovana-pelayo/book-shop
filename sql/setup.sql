@@ -13,7 +13,8 @@ CREATE TABLE books(
 
 CREATE TABLE authors(
     author_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-   author VARCHAR
+   author VARCHAR,
+   dob Varchar
 );
 
 CREATE TABLE books_authors (
@@ -33,10 +34,10 @@ VALUES
 ('Green Eggs and Ham', '1960');
 
 INSERT INTO authors (
-author
+author, dob
 )
-VALUES ('Sara Gruen'),
-('Dr.Suess');
+VALUES ('Sara Gruen', '1969'),
+('Dr.Suess', 'March 2, 1904'); 
 
 INSERT INTO books_authors(
     bk_id, auth_id

@@ -22,14 +22,15 @@ describe('books routes', () => {
 
   it('/books should return list of books', async () => {
     const resp = await request(app).get('/books');
+    console.log('resp', resp.body);
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual([
       {
-        id: '1',
+        book_id: '1',
         title: 'Water for Elephants',
         released: '2006',
       },
-      { id: '2', title: 'Green Eggs and Ham', released: '1960' },
+      { book_id: '2', title: 'Green Eggs and Ham', released: '1960' },
     ]);
   });
   afterAll(() => {

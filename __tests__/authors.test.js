@@ -23,8 +23,8 @@ describe('author routes', () => {
 
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual([
-      { id: '1', author: 'Sara Gruen' },
-      { id: '2', author: 'Dr.Suess' },
+      { author_id: '1', author: 'Sara Gruen' },
+      { author_id: '2', author: 'Dr.Suess' },
     ]);
   });
 

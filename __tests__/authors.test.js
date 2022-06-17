@@ -9,15 +9,6 @@ describe('author routes', () => {
     return setup(pool);
   });
 
-  it('should add a new author', async () => {
-    const author = new Author({
-      author: 'Yovana Pelayo',
-    });
-
-    const res = await request(app).post('/authors').send(author);
-    expect(res.body.author).toEqual(author.author);
-  });
-
   it('/authors should RETURN a list of authors', async () => {
     const resp = await request(app).get('/authors');
 
@@ -28,6 +19,14 @@ describe('author routes', () => {
     ]);
   });
 
+  it('should add a new author', async () => {
+    const author = new Author({
+      author: 'Yovana Pelayo',
+    });
+
+    const res = await request(app).post('/authors').send(author);
+    expect(res.body.author).toEqual(author.author);
+  });
   afterAll(() => {
     pool.end();
   });

@@ -11,12 +11,23 @@ describe('author routes', () => {
 
   it('should add a new author', async () => {
     const author = new Author({
-      author: 'Sara Gruen',
+      author: 'Yovana Pelayo',
     });
 
     const res = await request(app).post('/authors').send(author);
     expect(res.body.author).toEqual(author.author);
   });
+
+  it('/authors should RETURN a list of authors', async () => {
+    const resp = await request(app).get('/authors');
+
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual([
+      { id: '1', author: 'Sara Gruen' },
+      { id: '2', author: 'Dr.Suess' },
+    ]);
+  });
+
   afterAll(() => {
     pool.end();
   });

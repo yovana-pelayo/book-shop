@@ -22,7 +22,7 @@ describe('books routes', () => {
 
   it('/books should return list of books', async () => {
     const resp = await request(app).get('/books');
-    console.log('resp', resp);
+    console.log('resp', resp.body);
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual([
       {

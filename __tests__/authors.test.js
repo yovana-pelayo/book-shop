@@ -9,7 +9,7 @@ describe('author routes', () => {
     return setup(pool);
   });
 
-  it.skip('should add a new author', async () => {
+  it('should add a new author', async () => {
     const author = new Author({
       author: 'Sara Gruen',
     });
